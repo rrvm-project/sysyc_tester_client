@@ -24,6 +24,7 @@ async fn post(cli: &Cli) -> Result<()>{
             Ok(Event::Message(message)) => {
                 if message.data == "Exit Code: 1"{
                     failed = true;
+                    es.close();
                 }
                 println!("{}", message.data);
             }
